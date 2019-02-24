@@ -1,2 +1,2 @@
-# dno_berlin
+# simple rstats
 competition stats
