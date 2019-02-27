@@ -1,9 +1,10 @@
 library(readr)
 library(dplyr)
 library(ggplot2)
+library(ggmap)
 
 setwd('/Users/sophiawheatley/Downloads')
-dno_data <- read.csv('Students_DNOBerlin2017-18-19-2019.csv')
+dno_data <- read.csv('data-rstats.csv')
 
 ## Age
 dno_clean <- subset(dno_data, select = c(Geburtsdatum...birth.date, Postanschrift...postal.address))
@@ -19,7 +20,8 @@ dno_clean <- filter(dno_clean, between(dno_clean$age - age_mean, left = -2*age_s
 hist(dno_clean$age)
 
 ## Germany map
-dno_clean$address %>%
-  select_if(address, is.numeric)
+dno_clean$address <- gsub('^Berlin$', 10117, dno_clean$address)
+dno_clean$address <- gsub("[[:alpha:]]" , "", dno_clean$address)
+dno_clean$address <- gsub("[[:punct:]]" , "", dno_clean$address)  
 
 
