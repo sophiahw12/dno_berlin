@@ -24,4 +24,6 @@ dno_clean$address <- gsub('^Berlin$', 10117, dno_clean$address)
 dno_clean$address <- gsub("[[:alpha:]]" , "", dno_clean$address)
 dno_clean$address <- gsub("[[:punct:]]" , "", dno_clean$address)  
 
-
+# TODOs
+# 1. Germany map
+# 2. Plot the postcodes
